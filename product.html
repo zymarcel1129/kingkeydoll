@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aria · AL159 — KingKey Doll</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A; --bg2:#100D10; --card:#141116;
+  --rose:#E8A0BF; --rose-deep:#D97BA6; --rose-line:rgba(232,160,191,.28);
+  --gold:#D4AF37; --gold-bright:#E8C766;
+  --text:#EDE6EA; --muted:#9A8F96;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6}
+a{color:var(--rose);text-decoration:none}
+img{display:block;max-width:100%}
+nav{position:sticky;top:0;z-index:90;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--rose-line);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:baseline;gap:10px;line-height:1}
+.logo .kk{font-family:var(--sans);font-weight:500;letter-spacing:.35em;font-size:17px;color:var(--rose);text-transform:lowercase}
+.logo .doll{font-family:var(--serif);font-style:italic;font-weight:700;font-size:34px;color:var(--gold)}
+.nav-links{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.on{color:var(--rose)}
+.badge18{border:1px solid var(--rose-line);color:var(--rose);font-size:11px;font-weight:600;padding:3px 12px;border-radius:999px;letter-spacing:.1em}
+
+.wrap{max-width:1180px;margin:0 auto;padding:44px 5% 70px}
+.pd{display:grid;grid-template-columns:1.05fr .95fr;gap:40px}
+@media(max-width:900px){.pd{grid-template-columns:1fr}}
+/* gallery */
+.mainimg{border:1px solid var(--rose-line);border-radius:14px;overflow:hidden;aspect-ratio:2/3;background:var(--card)}
+.mainimg img{width:100%;height:100%;object-fit:cover;cursor:zoom-in}
+.thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}
+@media(max-width:640px){.thumbs{grid-template-columns:repeat(4,1fr)}}
+.thumbs img{border-radius:8px;border:1px solid transparent;cursor:pointer;opacity:.55;transition:.2s;aspect-ratio:2/3;object-fit:cover;width:100%}
+.thumbs img.on,.thumbs img:hover{opacity:1;border-color:var(--gold)}
+/* info */
+.no{color:var(--rose);font-size:12px;letter-spacing:.35em;text-transform:uppercase;margin-bottom:8px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(32px,5vw,50px);color:var(--gold)}
+h1 span{color:var(--rose);font-style:italic;font-size:.6em}
+.sku{color:var(--muted);font-size:13px;letter-spacing:.1em;margin:6px 0 18px}
+.price{font-family:var(--serif);font-size:30px;color:var(--gold-bright);margin-bottom:4px}
+.price s{color:var(--muted);font-size:18px;margin-left:10px}
+.stock{font-size:13px;color:var(--rose);margin-bottom:20px}
+.stock b{color:var(--gold-bright);font-weight:500}
+.desc{color:var(--muted);font-size:14.5px;margin-bottom:22px}
+.opt{margin-bottom:18px}
+.opt label{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
+.opt .row{display:flex;gap:8px;flex-wrap:wrap}
+.opt button{background:var(--card);border:1px solid var(--rose-line);color:var(--text);padding:8px 18px;border-radius:999px;font-size:13px;cursor:pointer;transition:.2s}
+.opt button.on{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.08)}
+.buy{display:flex;gap:12px;margin:26px 0 16px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 34px;border-radius:999px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;transition:.25s}
+.btn.rose{background:linear-gradient(135deg,var(--rose-deep),var(--rose));color:#1a0d14;font-weight:600}
+.btn.ghost{background:transparent;border-color:var(--gold);color:var(--gold)}
+.assure{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+.assure span{border:1px solid rgba(232,160,191,.15);border-radius:10px;padding:8px 14px}
+
+/* tabs & table */
+h2.sec{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3.5vw,34px);color:var(--gold);margin:54px 0 18px}
+h2.sec em{color:var(--rose);font-style:italic}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--rose-line);border-radius:14px;overflow:hidden;font-size:14px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid rgba(232,160,191,.12)}
+th{color:var(--rose);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--bg2);width:34%}
+tr:last-child td{border-bottom:none}
+td{color:var(--text)}
+.care{background:var(--card);border:1px solid var(--rose-line);border-radius:14px;padding:24px 28px}
+.care li{color:var(--muted);font-size:14px;margin:10px 0 10px 20px}
+.care li b{color:var(--gold-bright);font-weight:500}
+
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:150;display:none;align-items:center;justify-content:center}
+#lb.on{display:flex}
+#lb img{max-height:88vh;max-width:94vw;object-fit:contain;border:1px solid var(--rose-line);border-radius:8px}
+#lb .x{position:absolute;top:18px;right:22px;background:none;border:1px solid var(--rose-line);color:var(--rose);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px}
+
+footer{padding:50px 5% 40px;border-top:1px solid var(--rose-line);text-align:center}
+footer .logo{justify-content:center;margin-bottom:14px}
+footer p{color:var(--muted);font-size:12px;max-width:660px;margin:0 auto 6px}
+footer .fine{font-size:11px;opacity:.7}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html"><span class="kk">kingkey</span><span class="doll">doll</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html" class="on">The Collection</a>
+    <a href="quality.html">Quality</a>
+    <a href="custom-studio.html">Custom Studio</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact Us</a>
+    <span class="badge18">18+</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="pd">
+    <div>
+      <div class="mainimg"><img id="main" src="images/yi/full/01.jpg" alt="Aria" onclick="lbOpen(0)"></div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+    <div>
+      <div class="no">No. II · Signature Collection</div>
+      <h1>Aria <span>Classic Muse</span></h1>
+      <div class="sku">US-149-t · AL159 · Ships from US warehouse</div>
+      <div class="price">$1,290 <s>$1,590</s></div>
+      <div class="stock">● <b>In stock</b> — ready to ship, 3–5 day delivery</div>
+      <p class="desc">Timeless proportions and a serene expression. Aria is hand-finished in premium TPE with a fully articulated skeleton — soft to the touch, poised in any pose. Every photo in her gallery shows the exact piece that ships.</p>
+
+      <div class="opt"><label>Head option</label><div class="row">
+        <button class="on">As photographed</button><button>Alternate make-up</button>
+      </div></div>
+      <div class="opt"><label>Skeleton</label><div class="row">
+        <button class="on">Standard articulated</button><button>Lightweight (+$90)</button><button>Shrugging shoulders (+$60)</button>
+      </div></div>
+      <div class="opt"><label>Extras</label><div class="row">
+        <button>Standing feet (+$40)</button><button>Body heating (+$50)</button>
+      </div></div>
+
+      <div class="buy">
+        <a class="btn rose" href="checkout.html?theme=yi">Add to cart</a>
+        <a class="btn ghost" href="custom-studio.html">Customize in Studio</a>
+      </div>
+      <div class="assure">
+        <span>🔒 100% discreet packaging</span><span>🧪 FDA-tested materials</span><span>📦 US &amp; EU stock</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sec">Specifications</h2>
+  <table>
+    <tr><th>Model</th><td>AL159 · Aria</td></tr>
+    <tr><th>Height</th><td>149 cm / 4'11"</td></tr>
+    <tr><th>Material</th><td>Medical-grade TPE, stainless steel skeleton</td></tr>
+    <tr><th>Weight</th><td>≈ 28 kg (lightweight skeleton reduces to ≈ 24 kg)</td></tr>
+    <tr><th>Skin tone</th><td>Natural (as photographed)</td></tr>
+    <tr><th>Package</th><td>Plain unbranded box · blanket-wrapped · blind courier label</td></tr>
+    <tr><th>Delivery</th><td>3–5 days from US warehouse · 2–4 days from DE warehouse</td></tr>
+    <tr><th>In the box</th><td>Doll · lingerie set · care kit · handling gloves · manual</td></tr>
+  </table>
+
+  <h2 class="sec">Care <em>guide</em></h2>
+  <div class="care">
+    <ul>
+      <li><b>Washing</b> — use mild soap and lukewarm water; pat dry with a soft towel. Never machine-wash hair or submerge the head.</li>
+      <li><b>Powdering</b> — apply renewal powder (cornstarch) after cleaning to keep skin silky and prevent tackiness.</li>
+      <li><b>Posing</b> — support limbs at the joint when moving; avoid forcing any joint past its natural stop.</li>
+      <li><b>Storage</b> — store flat or hanging in a cool, dry place away from direct sunlight and dark fabrics (dye transfer).</li>
+      <li><b>Heat</b> — keep away from radiators, hair dryers on hot settings, and prolonged direct sun.</li>
+    </ul>
+  </div>
+</div>
+
+<div id="lb" onclick="lbClose()"><button class="x" onclick="lbClose()">&times;</button><img id="lbImg" src="" alt=""></div>
+
+<footer>
+  <div class="logo"><span class="kk">kingkey</span><span class="doll">doll</span></div>
+  <p>100% discreet packaging &amp; billing. No brand names on the outer box, no product details on your statement.</p>
+  <p class="fine">&copy; 2026 KingKey Doll. All products are adult collectibles intended for adults 18+ only. 18 U.S.C. § 2257 compliance statement applies.</p>
+</footer>
+
+<script>
+(function(){
+  const N = 20, KEY = 'yi';
+  document.getElementById('thumbs').innerHTML = Array.from({length:N},(_,i)=>
+    `<img src="images/${KEY}/thumb/${String(i+1).padStart(2,'0')}.jpg" class="${i===0?'on':''}" onclick="pick(${i})" alt="Aria ${i+1}">`).join('');
+  window.pick = function(i){
+    document.getElementById('main').src = `images/${KEY}/full/${String(i+1).padStart(2,'0')}.jpg`;
+    document.querySelectorAll('.thumbs img').forEach((el,j)=>el.classList.toggle('on',j===i));
+    document.querySelectorAll('.thumbs img')[i].scrollIntoView({inline:'center',block:'nearest'});
+  };
+  window.lbOpen = function(i){
+    document.getElementById('lbImg').src = `images/${KEY}/full/${String(i+1).padStart(2,'0')}.jpg`;
+    document.getElementById('lb').classList.add('on');
+  };
+  window.lbClose = function(){ document.getElementById('lb').classList.remove('on'); };
+  // option buttons
+  document.querySelectorAll('.opt .row').forEach(row=>{
+    row.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+      row.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    }));
+  });
+})();
+</script>
+</body>
+</html>

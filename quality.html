@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality &amp; Safety — KingKey Doll</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/logo-32.png">
+<style>
+:root{
+  --bg:#0A0A0A; --bg2:#100D10; --card:#141116;
+  --rose:#E8A0BF; --rose-deep:#D97BA6; --rose-line:rgba(232,160,191,.28);
+  --gold:#D4AF37; --gold-bright:#E8C766;
+  --text:#EDE6EA; --muted:#9A8F96;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6}
+a{color:var(--rose);text-decoration:none}
+nav{position:sticky;top:0;z-index:90;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--rose-line);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:baseline;gap:12px;line-height:1}
+.logo .kk{font-family:var(--sans);font-weight:500;letter-spacing:.35em;font-size:21px;color:var(--rose);text-transform:lowercase}
+.logo .doll{font-family:var(--serif);font-style:italic;font-weight:700;font-size:46px;color:var(--gold)}
+.nav-links{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.on{color:var(--rose)}
+.badge18{border:1px solid var(--rose-line);color:var(--rose);font-size:11px;font-weight:600;padding:3px 12px;border-radius:999px;letter-spacing:.1em}
+
+header{padding:70px 5% 44px;text-align:center;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(212,175,55,.08),transparent)}
+header .eyebrow{color:var(--rose);letter-spacing:.4em;font-size:12px;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.5vw,58px);color:var(--gold)}
+header h1 em{color:var(--rose);font-style:italic}
+header p{color:var(--muted);max-width:640px;margin:18px auto 0;font-size:15px}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 5% 60px}
+.passbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:40px}
+.pass{background:var(--card);border:1px solid var(--rose-line);border-radius:14px;padding:22px;text-align:center}
+.pass .k{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pass .v{font-family:var(--serif);font-size:21px;color:var(--gold)}
+.pass .s{font-size:12px;color:var(--rose);margin-top:6px}
+
+h2.sec{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3.5vw,34px);color:var(--gold);margin:46px 0 18px}
+h2.sec em{color:var(--rose);font-style:italic}
+.lead{color:var(--muted);font-size:15px;max-width:720px;margin-bottom:22px}
+
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--rose-line);border-radius:14px;overflow:hidden;font-size:14px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid rgba(232,160,191,.12)}
+th{color:var(--rose);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--bg2)}
+td{color:var(--text)}
+tr:last-child td{border-bottom:none}
+td.ok{color:var(--gold-bright);font-weight:500}
+td.mut{color:var(--muted)}
+
+.demo{margin:8px 0 4px;text-align:center}
+.demo img{max-width:340px;width:100%;height:auto;border-radius:14px;border:1px solid var(--rose-line);box-shadow:0 18px 48px rgba(0,0,0,.45);display:block;margin:0 auto;background:#000}
+.demo .gifhint{display:block;margin:10px auto 0;color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.demovid{margin:30px 0 4px;text-align:center}
+.demovid video{max-width:680px;width:100%;height:auto;border-radius:14px;border:1px solid var(--rose-line);box-shadow:0 18px 48px rgba(0,0,0,.45);display:block;margin:0 auto;background:#000}
+.vload{max-width:680px;margin:12px auto 0;display:flex;align-items:center;gap:12px;justify-content:center}
+.vload .vbar{flex:0 1 220px;height:4px;background:rgba(154,143,150,.25);border-radius:99px;overflow:hidden}
+.vload .vbar span{display:block;height:100%;width:0%;background:var(--rose);border-radius:99px;transition:width .2s}
+.vload .vtxt{color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+.demo-cap{margin:16px auto 0;max-width:680px;color:var(--muted);font-size:13.5px;line-height:1.75;padding:0 4px}
+.demo-cap b{color:var(--gold);font-size:11px;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:6px}
+
+.certcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:8px}
+.cert{background:var(--card);border:1px solid var(--rose-line);border-radius:14px;padding:16px}
+.cert img{width:100%;border-radius:8px;border:1px solid rgba(232,160,191,.18)}
+.cert .cap{color:var(--muted);font-size:12.5px;margin-top:12px;text-align:center;letter-spacing:.05em}
+.cert .cap b{color:var(--rose);font-weight:500}
+
+.notes{background:var(--card);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:18px 22px;margin-top:26px}
+.notes li{color:var(--muted);font-size:13.5px;margin:8px 0 8px 18px}
+.notes .t{color:var(--gold);font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+
+footer{padding:50px 5% 40px;text-align:center;border-top:1px solid var(--rose-line)}
+footer .logo{justify-content:center;margin-bottom:14px}
+footer p{color:var(--muted);font-size:12px;max-width:640px;margin:0 auto 6px}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html"><img src="images/logo-32.png" alt="" class="logo-icon" style="height:42px;width:auto;margin-right:6px;align-self:center"><span class="kk">kingkey</span><span class="doll">doll</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">The Collection</a>
+    <a href="quality.html" class="on">Quality</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact Us</a>
+    <span class="badge18">18+</span>
+  </div>
+</nav>
+
+<header>
+  <div class="eyebrow">Tested · Certified · Safe</div>
+  <h1>Quality &amp; <em>Safety</em></h1>
+  <p>Every material we use is independently tested by an accredited laboratory against U.S. FDA food-contact standards — the strictest benchmark applied to skin-contact products.</p>
+</header>
+
+<div class="wrap">
+
+  <div class="passbar">
+    <div class="pass"><div class="k">Test Report No.</div><div class="v">PTC26051913701C</div><div class="s">Issued May 28, 2026</div></div>
+    <div class="pass"><div class="k">FDA 21 CFR 177.1810</div><div class="v">PASS</div><div class="s">Styrene Block Polymers</div></div>
+    <div class="pass"><div class="k">FDA 21 CFR 176.170</div><div class="v">PASS</div><div class="s">Food-contact extractives</div></div>
+    <div class="pass"><div class="k">Laboratory</div><div class="v">PTC Guangdong</div><div class="s">CNAS-accredited lab</div></div>
+  </div>
+
+  <h2 class="sec">What this means for <em>you</em></h2>
+  <p class="lead">Our platinum-grade silicone and TPE compounds are tested to the same standards the FDA applies to materials that touch food — a threshold far stricter than general consumer-product requirements. In plain language: nothing harmful leaches out of the material, even under prolonged skin contact.</p>
+
+  <table>
+    <tr><th>Test parameter</th><th>Method</th><th>Limit</th><th>Result</th><th>Verdict</th></tr>
+    <tr><td>Total extractives — distilled water</td><td class="mut">FDA 21 CFR 177.1810</td><td class="mut">≤ 0.025 mg/in²</td><td>&lt; 0.01 mg/in²</td><td class="ok">PASS</td></tr>
+    <tr><td>Total extractives — 50% alcohol</td><td class="mut">FDA 21 CFR 177.1810</td><td class="mut">≤ 0.01 mg/in²</td><td>&lt; 0.01 mg/in²</td><td class="ok">PASS</td></tr>
+    <tr><td>Solubility in toluene</td><td class="mut">FDA 21 CFR 177.1810</td><td class="mut">Completely soluble</td><td>Completely soluble</td><td class="ok">PASS</td></tr>
+    <tr><td>Chloroform-soluble residues — water, 150°F</td><td class="mut">FDA 21 CFR 176.170</td><td class="mut">≤ 0.5 mg/in²</td><td>ND (not detected)</td><td class="ok">PASS</td></tr>
+    <tr><td>Chloroform-soluble residues — 50% ethanol, 150°F</td><td class="mut">FDA 21 CFR 176.170</td><td class="mut">≤ 0.5 mg/in²</td><td>ND (not detected)</td><td class="ok">PASS</td></tr>
+  </table>
+
+  <div class="notes">
+    <div class="t">Testing details</div>
+    <ul>
+      <li>Sample: flesh-colored silicone, main body — Style No. XG800, natural skin tone</li>
+      <li>Applicant &amp; manufacturer: Dongguan YSR Industry Co., Ltd. (Dongguan, Guangdong)</li>
+      <li>Sample received May 19, 2026 · test completed May 28, 2026 · destination market: USA</li>
+      <li>Report issued by Precise Testing &amp; Certification (Guangdong) Co., Ltd. — Report No. PTC26051913701C-EN01</li>
+    </ul>
+  </div>
+
+  <h2 class="sec">Live tactile <em>assessment</em></h2>
+  <p class="lead">Unedited footage captured at our atelier — a real product examination that lets you see and feel the authentic surface texture, lifelike skin response and meticulous detailing of every KingKey Doll. The footage below is exactly what the doll looks like when it arrives at your door.</p>
+  <div class="demo">
+    <img src="images/quality-demo.gif" alt="Live workshop assessment of a KingKey Doll showing genuine tactile texture, skin response and life-like detailing" loading="lazy" decoding="async">
+    <span class="gifhint">Quick preview · loop</span>
+    <div class="demo-cap">
+      <b>Workshop assessment · unedited</b>
+      A genuine tactile evaluation recorded in-house — the realistic skin texture, soft responsive touch and anatomical precision you see are not retouched. Every pore, gradient and articulated joint shown here is the same craftsmanship we ship to your door.
+    </div>
+  </div>
+
+  <div class="demovid">
+    <video id="demoVideo" controls playsinline preload="metadata" poster="images/quality-demo-poster.jpg">
+      <source src="images/quality-demo.mp4" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+    <div class="vload" id="vload" hidden>
+      <div class="vbar"><span id="vbarFill"></span></div>
+      <span class="vtxt" id="vtxt">Loading video…</span>
+    </div>
+    <div class="demo-cap">
+      <b>Full HD assessment · 20 sec</b>
+      The complete, unedited examination in high definition with sound — every detail of the tactile test, surface finish and articulation, exactly as performed in our atelier. Press play to watch.
+    </div>
+  </div>
+
+  <h2 class="sec">Original <em>report</em></h2>
+  <p class="lead">Front page, test conclusions, and full results table from the laboratory report. A copy of the complete report ships with every wholesale order on request.</p>
+  <div class="certcards">
+    <div class="cert"><img src="certs/tpe-page1.png" alt="Test report cover page"><div class="cap"><b>Page 1</b> — Report identification &amp; sample details</div></div>
+    <div class="cert"><img src="certs/tpe-page2.png" alt="Test conclusions"><div class="cap"><b>Page 2</b> — Test requested &amp; conclusions: PASS / PASS</div></div>
+    <div class="cert"><img src="certs/tpe-page3.png" alt="Test results table"><div class="cap"><b>Page 3</b> — Full quantitative results &amp; method</div></div>
+  </div>
+
+</div>
+
+<footer>
+  <img src="images/logo-64.png" alt="KingKey Doll" style="margin:0 auto 16px;display:block;opacity:.85">
+  <div class="logo" style="justify-content:center"><span class="kk">kingkey</span><span class="doll">doll</span></div>
+  <p>Material safety reports available on request · compliance@kingkeydoll.com</p>
+  <p class="fine" style="font-size:11px;opacity:.7">&copy; 2026 KingKey Doll. All products are adult collectibles intended for adults 18+ only.</p>
+</footer>
+<script>
+/* Video playback fallback for servers without HTTP Range support.
+   Safari (macOS + iOS) refuses to play <video> unless the server answers
+   ranged requests with 206. This probes the server; if no Range support,
+   the file is fetched in full, turned into a blob URL, and swapped in. */
+(function () {
+  var v = document.getElementById('demoVideo');
+  if (!v || !window.fetch) return;
+  var url = v.querySelector('source').src;
+  fetch(url, { headers: { Range: 'bytes=0-1' } }).then(function (probe) {
+    if (probe.status === 206) return;           /* server streams properly — nothing to do */
+    probe.cancel && probe.cancel();
+    var box = document.getElementById('vload');
+    var fill = document.getElementById('vbarFill');
+    var txt = document.getElementById('vtxt');
+    box.hidden = false;
+    v.removeAttribute('src');
+    v.querySelector('source').removeAttribute('src');
+    v.load();
+    return fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      var total = +(r.headers.get('Content-Length') || 0);
+      if (!r.body || !total || typeof r.body.getReader !== 'function') return r.blob();
+      var reader = r.body.getReader(), got = 0, chunks = [];
+      function pump() {
+        return reader.read().then(function (res) {
+          if (res.done) return;
+          chunks.push(res.value); got += res.value.length;
+          var pct = total ? Math.round(got / total * 100) : 0;
+          fill.style.width = pct + '%';
+          txt.textContent = 'Loading video… ' + pct + '%';
+          return pump();
+        });
+      }
+      return pump().then(function () {
+        return new Blob(chunks, { type: 'video/mp4' });
+      });
+    });
+  }).then(function (blob) {
+    if (!blob) return;
+    v.src = URL.createObjectURL(blob);
+    v.load();
+    document.getElementById('vload').hidden = true;
+  }).catch(function () {
+    /* network failure — restore native source and let the browser retry */
+    var s = document.createElement('source');
+    s.src = url; s.type = 'video/mp4';
+    v.innerHTML = ''; v.appendChild(s); v.load();
+    document.getElementById('vload').hidden = true;
+  });
+})();
+</script>
+</body>
+</html>

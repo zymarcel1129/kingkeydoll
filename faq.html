@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ &amp; Policies — KingKey Doll</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/logo-32.png">
+<style>
+:root{
+  --bg:#0A0A0A; --bg2:#100D10; --card:#141116;
+  --rose:#E8A0BF; --rose-deep:#D97BA6; --rose-line:rgba(232,160,191,.28);
+  --gold:#D4AF37; --gold-bright:#E8C766;
+  --text:#EDE6EA; --muted:#9A8F96;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6}
+a{color:var(--rose);text-decoration:none}
+nav{position:sticky;top:0;z-index:90;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--rose-line);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:center;gap:12px;line-height:1}
+.logo .kk{font-family:var(--sans);font-weight:500;letter-spacing:.35em;font-size:21px;color:var(--rose);text-transform:lowercase}
+.logo .doll{font-family:var(--serif);font-style:italic;font-weight:700;font-size:46px;color:var(--gold)}
+.logo-icon{height:42px;width:auto;flex-shrink:0}
+.nav-links{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.on{color:var(--rose)}
+.badge18{border:1px solid var(--rose-line);color:var(--rose);font-size:11px;font-weight:600;padding:3px 12px;border-radius:999px;letter-spacing:.1em}
+
+header{padding:64px 5% 30px;text-align:center;background:radial-gradient(ellipse 55% 60% at 50% 0%,rgba(212,175,55,.07),transparent)}
+header .eyebrow{color:var(--rose);letter-spacing:.4em;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+header h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.5vw,56px);color:var(--gold)}
+header h1 em{color:var(--rose);font-style:italic}
+
+.container{max-width:880px;margin:0 auto;padding:10px 5% 60px}
+.quicknav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:26px 0 44px}
+.quicknav a{border:1px solid var(--rose-line);color:var(--muted);font-size:12.5px;letter-spacing:.08em;padding:6px 18px;border-radius:999px;transition:.2s}
+.quicknav a:hover{color:var(--rose);border-color:var(--rose)}
+
+h2.sec{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3.5vw,34px);color:var(--gold);margin:52px 0 18px}
+h2.sec span{color:var(--rose);font-style:italic}
+
+.qa{border:1px solid var(--rose-line);border-radius:12px;margin-bottom:10px;background:var(--card);overflow:hidden}
+.qa .q{width:100%;background:none;border:none;color:var(--text);font-family:var(--sans);font-weight:400;font-size:15px;text-align:left;padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.qa .q::after{content:"+";color:var(--gold);font-size:19px;flex-shrink:0}
+.qa.open .q::after{content:"–"}
+.qa .q:hover{color:var(--rose)}
+.qa .a{display:none;color:var(--muted);font-size:14px;padding:0 20px 18px}
+.qa.open .a{display:block}
+
+.policy{background:var(--card);border:1px solid var(--rose-line);border-radius:14px;padding:26px 30px;margin-bottom:14px}
+.policy h3{font-family:var(--serif);font-weight:500;color:var(--gold);font-size:18px;margin:20px 0 8px}
+.policy h3:first-child{margin-top:0}
+.policy p{color:var(--muted);font-size:14px;margin-bottom:8px}
+.policy ul{margin:6px 0 12px 20px}
+.policy li{color:var(--muted);font-size:14px;margin:6px 0}
+.policy li b{color:var(--gold-bright);font-weight:500}
+.draft{display:inline-block;border:1px solid rgba(232,160,191,.5);color:var(--rose);font-family:var(--sans);font-weight:400;font-size:11px;padding:2px 10px;border-radius:999px;margin-left:10px;vertical-align:middle}
+
+.teamnote{position:fixed;bottom:0;left:0;right:0;background:rgba(16,13,16,.96);border-top:1px solid var(--gold);color:var(--gold-bright);font-size:12px;text-align:center;padding:8px;z-index:60}
+
+footer{padding:50px 5% 70px;border-top:1px solid var(--rose-line);text-align:center}
+footer .logo{justify-content:center;margin-bottom:14px}
+footer p{color:var(--muted);font-size:12px;max-width:660px;margin:0 auto 6px}
+footer .fine{font-size:11px;opacity:.7}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html"><img src="images/logo-32.png" alt="" class="logo-icon"><span class="kk">kingkey</span><span class="doll">doll</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">The Collection</a>
+    <a href="quality.html">Quality</a>
+    <a href="faq.html" class="on">FAQ</a>
+    <a href="contact.html">Contact Us</a>
+    <span class="badge18">18+</span>
+  </div>
+</nav>
+
+<header>
+  <div class="eyebrow">Support Center</div>
+  <h1>FAQ &amp; <em>Policies</em></h1>
+</header>
+
+<div class="container">
+  <div class="quicknav">
+    <a href="#orders">Orders</a><a href="#shipping">Shipping</a><a href="#products">Products</a>
+    <a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#returns">Returns</a><a href="#2257">2257</a>
+  </div>
+
+  <h2 class="sec" id="orders">Orders <span>&amp; Payment</span></h2>
+  <div class="qa"><button class="q" onclick="tg(this)">How discreet is my purchase?</button>
+    <div class="a">Completely. Your doll ships in a plain, unbranded carton with no external indication of contents. Your bank statement shows only "KK Trading" — never the product name or website. We never sell or share your data.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">What payment methods do you accept?</button>
+    <div class="a">We accept major credit and debit cards (Visa, Mastercard) via our secure payment processor. All transactions are SSL-encrypted. (Placeholder — final gateway pending CCBill / Segpay integration.)</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">Do I have to pay customs duties?</button>
+    <div class="a">No — for EU and US orders, we ship from our local warehouses in Germany and the United States. Because your order never crosses an international border on its way to you, there are no customs fees or surprise charges.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">Can I change or cancel my order?</button>
+    <div class="a">In-stock orders can be modified or cancelled within 24 hours of purchase. Custom builds can be modified free of charge during the first 72 hours; after production begins, a restocking fee applies.</div></div>
+
+  <h2 class="sec" id="shipping">Shipping <span>&amp; Delivery</span></h2>
+  <div class="qa"><button class="q" onclick="tg(this)">How long does delivery take?</button>
+    <div class="a">EU orders: 3–5 business days from our German warehouse. US orders: 3–6 business days via UPS Ground. Custom builds: 3–5 weeks crafting time plus shipping. You receive a tracking number the moment your order leaves the warehouse.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">What if I'm not home when it arrives?</button>
+    <div class="a">The courier will attempt delivery up to three times, or you can redirect the parcel to a pickup point. The parcel requires a signature from an adult (18+).</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">Which countries do you ship to?</button>
+    <div class="a">We currently ship to the EU, UK, USA, and Canada. (Placeholder — confirm final list with logistics team.)</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">What happens if my package is lost or shows no tracking updates?</button>
+    <div class="a">A package is treated as lost when tracking shows no movement for an extended period or an abnormal status. You must provide a <b>complete English screenshot of the order page</b> (partial screenshots are not accepted) showing your delivery address, tracking number and order value. Once we file the carrier claim you receive a full refund or a free replacement. Cases without the required proof cannot be processed. See the <a href="#returns">full Return Policy</a>.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">What if tracking says "delivered" but I never received it?</button>
+    <div class="a">If you did not purchase the signature service, no carrier claim can be filed — we can only provide the Proof of Delivery (POD). To open a carrier investigation you must provide evidence of non-receipt (e.g., doorbell or entrance camera footage), and success is not guaranteed. We strongly recommend the signature service at checkout.</div></div>
+
+  <h2 class="sec" id="products">Product <span>&amp; Care</span></h2>
+  <div class="qa"><button class="q" onclick="tg(this)">Are your materials safe?</button>
+    <div class="a">Yes — and independently verified. Our body materials are tested by CNAS-accredited laboratory PTC against U.S. FDA 21 CFR 177.1810 and 176.170 food-contact standards: total extractives far below limits, chloroform-soluble residues not detected. See the <a href="quality.html">full lab report</a>.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">How do I clean and store my doll?</button>
+    <div class="a">Wash with mild antibacterial soap and lukewarm water, pat dry, and apply the included renewal powder. Store lying flat on the included blanket, away from direct sunlight and dark-dyed fabrics. Full care instructions ship with every doll.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">The facial makeup seems to be fading — is that a defect?</button>
+    <div class="a">No. All dolls stocked in our overseas warehouses are made of TPE, and the facial makeup is hand-applied. It will gradually wear off with handling and cleaning — this is a normal property of the material and is <b>not considered a quality defect</b>.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">How far can I pose my doll?</button>
+    <div class="a">Overseas-warehouse dolls use standard skeletons. Never force the joints beyond their natural range — the safe limit is any pose a normal adult human can physically hold. Please follow the included manual; damage from forcing joints is not covered as a quality issue.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">What's included with my doll?</button>
+    <div class="a">Wig, eye set, comb, storage blanket, care kit (cleaner, renewal powder, gloves), and a printed care manual. Upgrades like implanted hair or body heating can be added in the Custom Studio.</div></div>
+  <div class="qa"><button class="q" onclick="tg(this)">Can I order replacement heads or hands?</button>
+    <div class="a">Yes — heads and hands use standard M16 connections and are interchangeable across compatible models. (Placeholder — confirm replacement-part SKU list and pricing with the factory.)</div></div>
+
+  <h2 class="sec" id="privacy">Privacy <span>Policy</span></h2>
+  <div class="policy">
+    <h3>1. What We Collect <span class="draft">草稿 · 待美国律师审核</span></h3>
+    <p>We collect only what's needed to fulfil your order: name, shipping address, email, and payment confirmation (we never store full card numbers — our PCI-compliant processor handles them).</p>
+    <h3>2. What We Never Do</h3>
+    <ul>
+      <li>We never sell, rent, or share your personal data with third parties for marketing.</li>
+      <li>We never store or transmit your payment card details on our servers.</li>
+      <li>We never send promotional emails with explicit content or product names in the subject line.</li>
+    </ul>
+    <h3>3. Data Retention</h3>
+    <p>Order records are retained for the period required by tax and consumer-protection law (typically 7–10 years), then securely deleted. You may request deletion of your account and marketing data at any time via support@… (placeholder).</p>
+    <h3>4. Cookies</h3>
+    <p>We use strictly necessary cookies (cart, age verification) and optional analytics cookies you can decline. No advertising pixels from mainstream ad networks are used on this site.</p>
+    <h3>5. Your Rights (GDPR / CCPA)</h3>
+    <p>EU and California residents may request access, correction, export, or deletion of their personal data by contacting our support email. We respond within 30 days.</p>
+  </div>
+
+  <h2 class="sec" id="terms">Terms <span>of Service</span></h2>
+  <div class="policy">
+    <h3>1. Eligibility <span class="draft">草稿 · 待美国律师审核</span></h3>
+    <p>By using this website you confirm you are at least 18 years old (21 where required by law) and that purchasing adult products is legal in your jurisdiction.</p>
+    <h3>2. Product Descriptions</h3>
+    <p>Dimensions, weights, and colors are approximate; handcrafted items vary slightly. Photography is representative — minor differences between displayed and delivered products are normal and not grounds for return.</p>
+    <h3>3. Health &amp; Safety</h3>
+    <p>Our products are consumer companionship products, not medical devices, and make no medical claims. Materials are body-safe, lab-tested TPE and platinum-cured silicone. If you experience any skin sensitivity, discontinue use and contact support.</p>
+    <h3>4. Limitation of Liability</h3>
+    <p>Liability is limited to the purchase price of the product. We are not liable for indirect or consequential damages.</p>
+    <h3>5. Governing Law</h3>
+    <p>These terms are governed by the laws of [placeholder — state of US LLC registration].</p>
+  </div>
+
+  <h2 class="sec" id="returns">Returns <span>&amp; Refunds</span></h2>
+  <div class="policy">
+    <h3>General Rule: No Reason-Based Returns</h3>
+    <p>Our dolls are <b>personal intimate-health products</b>. For hygiene reasons they cannot be returned or exchanged without a reason ("change of mind" / "no longer wanted"). For confirmed quality issues we offer <b>replacement or compensation only</b> — not returns. By placing an order you accept this policy. Quality issues must be reported within <b>7 days of receipt</b>; reports after this window cannot be processed.</p>
+
+    <h3>A. Before Delivery — In-Transit Issues</h3>
+    <ul>
+      <li><b>1. Interception requested while the package is in transit:</b> The customer bears the interception fee plus round-trip shipping (the return leg costs the same as the outbound leg).</li>
+      <li><b>2. Unjustified refusal of the parcel:</b> The customer bears round-trip shipping, or ships the parcel back at their own expense — freight-collect (COD) returns are not accepted. A refund is issued only after the warehouse inspects the return and confirms the product is in resalable condition; if the product affects resale, no refund will be issued.</li>
+      <li><b>3. Lost package</b> (no tracking movement for an extended period, or an abnormal tracking status): The customer must provide a <b>complete screenshot of the order page, in English</b> (partial screenshots are not accepted), clearly showing the delivery address, tracking number and order value. Once we file the carrier claim, you receive a <b>full refund or a replacement</b>. Cases where the required proof cannot be provided cannot be processed.</li>
+      <li><b>4. Address change for a package already in transit:</b> The customer bears the carrier's address-change service fee. Success <b>cannot be guaranteed</b> — if the change fails, the service fee is still charged.</li>
+      <li><b>5. Tracking shows "delivered" but you have not received the parcel:</b> If the paid signature service was not purchased, no carrier claim can be filed — we can only provide the Proof of Delivery (POD). To request a carrier investigation you must provide evidence of non-receipt (e.g., doorbell or entrance camera footage). An investigation does not guarantee a successful outcome.</li>
+    </ul>
+
+    <h3>B. After Delivery</h3>
+    <ul>
+      <li><b>1. Damaged packaging or product:</b> If the carton or product is visibly damaged, <b>refuse the parcel at the door</b>. If you have already signed for it, contact us promptly with photos of (1) the outer carton, (2) the carton's shipping label and (3) the damaged product. Compensation is based on the degree of damage; if the product is unusable, we will <b>replace it free of charge or issue a full refund</b>. If a damaged parcel is signed for, returned without reporting first, and warehouse inspection finds the product unusable, no refund will be issued and the customer bears the return shipping cost.</li>
+      <li><b>2. Makeup fading is not a quality defect:</b> All dolls stocked in our overseas warehouses are made of TPE; the facial makeup is hand-applied and will gradually wear off with handling and cleaning. Makeup fading during normal use is not a quality issue.</li>
+      <li><b>3. Skeleton limits:</b> Overseas-warehouse dolls use standard skeletons. Never force the joints — any pose a normal adult human can physically hold is the limit. Please refer to the included manual.</li>
+      <li><b>4. 7-day window:</b> Quality issues must be reported to us within <b>7 days of receipt</b>. Reports received after this window cannot be processed.</li>
+      <li><b>5. No reason-based returns:</b> Our products are personal intimate-health products and <b>do not accept no-reason returns or exchanges</b>. For quality issues we offer replacement or compensation only.</li>
+      <li><b>6. Unauthorized returns:</b> If a customer ships a parcel back without our authorization, the warehouse may be unable to locate it, or inspection may find that it affects resale — in either case no compensation or refund will be issued.</li>
+    </ul>
+
+    <h3>How to File a Claim</h3>
+    <p>Email support with your order number, tracking number and clear photos of (1) the shipping carton, (2) the shipping label and (3) the product or defect. Claims are assessed within 3 business days.</p>
+    <h3>Cancellation</h3>
+    <p>Unshipped in-stock orders: full refund. Custom builds: free cancellation within 72 hours of ordering; afterwards a production-cost restocking fee applies. Once a parcel has shipped, the in-transit rules in Section A apply.</p>
+  </div>
+
+  <h2 class="sec" id="2257">18 U.S.C. § 2257 <span>Compliance Statement</span></h2>
+  <div class="policy">
+    <p>All products depicted on this website represent adult collectible figures. The owners and operators of this website are not the primary producer (as that term is defined in 18 U.S.C. § 2257 and 28 C.F.R. § 75.1(c)) of any visual content contained in this website. All depicted figures are adult in form and appearance.</p>
+  </div>
+</div>
+
+<footer>
+  <img src="images/logo-64.png" alt="KingKey Doll" style="margin:0 auto 16px;display:block;opacity:.85">
+  <div class="logo" style="justify-content:center"><span class="kk">kingkey</span><span class="doll">doll</span></div>
+  <p>100% discreet packaging &amp; billing.</p>
+  <p class="fine">&copy; 2026 KingKey Doll. All products are adult collectibles intended for adults 18+ only.</p>
+</footer>
+
+<div class="teamnote">🔧 内部评审版 · 政策页为英文草稿（律师审核前版本），标粉「草稿」处上线前必须处理</div>
+
+<script>
+function tg(btn){
+  const qa = btn.parentElement;
+  const open = qa.classList.contains('open');
+  document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
+  if(!open) qa.classList.add('open');
+}
+</script>
+</body>
+</html>

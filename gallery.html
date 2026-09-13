@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Collection — KingKey Doll</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/logo-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="images/logo-64.png">
+<style>
+:root{
+  --bg:#0A0A0A; --bg2:#100D10; --card:#141116; --card2:#191418;
+  --rose:#E8A0BF; --rose-deep:#D97BA6; --rose-line:rgba(232,160,191,.28);
+  --gold:#D4AF37; --gold-bright:#E8C766;
+  --text:#EDE6EA; --muted:#9A8F96;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:var(--rose);text-decoration:none}
+
+/* ===== AGE GATE ===== */
+#ageGate{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
+#ageGate .box{background:var(--card);border:1px solid var(--rose-line);border-radius:16px;padding:44px 40px;max-width:440px;text-align:center}
+#ageGate h2{font-family:var(--serif);font-weight:500;color:var(--gold);font-size:26px;margin-bottom:12px}
+#ageGate p{color:var(--muted);font-size:14px;margin-bottom:26px}
+#ageGate .btns{display:flex;gap:12px;justify-content:center}
+#ageGate .yes{background:linear-gradient(135deg,var(--rose-deep),var(--rose));color:#1a0d14;border:none;padding:12px 30px;border-radius:999px;font-weight:600;cursor:pointer;font-size:14px}
+#ageGate .no{background:transparent;color:var(--muted);border:1px solid #3a333a;padding:12px 30px;border-radius:999px;cursor:pointer;font-size:14px}
+
+/* ===== NAV ===== */
+nav{position:sticky;top:0;z-index:90;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--rose-line);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:center;gap:12px;line-height:1}
+.logo-icon{height:42px;width:auto;flex-shrink:0}
+.logo .kk{font-family:var(--sans);font-weight:500;letter-spacing:.35em;font-size:21px;color:var(--rose);text-transform:lowercase}
+.logo .doll{font-family:var(--serif);font-style:italic;font-weight:700;font-size:46px;color:var(--gold);letter-spacing:.02em}
+.nav-links{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.on{color:var(--rose)}
+.badge18{border:1px solid var(--rose-line);color:var(--rose);font-size:11px;font-weight:600;padding:3px 12px;border-radius:999px;letter-spacing:.1em}
+
+/* ===== HERO ===== */
+header{padding:70px 5% 40px;text-align:center;background:
+  radial-gradient(ellipse 60% 50% at 50% 0%,rgba(212,175,55,.07),transparent),
+  radial-gradient(ellipse 40% 40% at 80% 20%,rgba(232,160,191,.06),transparent)}
+header .eyebrow{color:var(--rose);letter-spacing:.4em;font-size:12px;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,6vw,64px);color:var(--gold)}
+header h1 em{color:var(--rose);font-style:italic}
+header p{color:var(--muted);max-width:620px;margin:18px auto 0;font-size:15px}
+
+/* ===== THEME SUBNAV ===== */
+.themenav{position:sticky;top:64px;z-index:80;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,160,191,.12);display:flex;gap:8px;overflow-x:auto;padding:12px 5%;justify-content:flex-start}
+.themenav a{flex-shrink:0;font-size:12.5px;letter-spacing:.08em;color:var(--muted);border:1px solid transparent;padding:6px 16px;border-radius:999px;transition:.2s}
+.themenav a:hover{color:var(--rose);border-color:var(--rose-line)}
+
+/* ===== THEME SECTION ===== */
+.theme{padding:60px 5% 30px;border-bottom:1px solid rgba(232,160,191,.1);scroll-margin-top:130px}
+.theme:nth-child(even){background:var(--bg2)}
+.theme-head{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;margin-bottom:26px;align-items:center}
+@media(max-width:860px){.theme-head{grid-template-columns:1fr}}
+.heroimg{position:relative;border:1px solid var(--rose-line);border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--card)}
+.heroimg img{width:100%;transition:transform .5s}
+.heroimg:hover img{transform:scale(1.03)}
+.heroimg .tag{position:absolute;top:14px;left:14px;background:rgba(10,10,10,.82);border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:5px 14px;border-radius:999px}
+.meta .no{color:var(--rose);font-size:12px;letter-spacing:.35em;text-transform:uppercase;margin-bottom:8px}
+.meta h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,44px);color:var(--gold);margin-bottom:4px}
+.meta h2 span{color:var(--rose);font-style:italic}
+.meta .sku{color:var(--muted);font-size:13px;letter-spacing:.1em;margin-bottom:18px}
+.meta .desc{color:var(--muted);font-size:14.5px;margin-bottom:20px;max-width:480px}
+.specs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.specs span{border:1px solid var(--rose-line);color:var(--rose);font-size:12px;padding:5px 14px;border-radius:999px;letter-spacing:.06em}
+.specs span.g{border-color:rgba(212,175,55,.4);color:var(--gold)}
+.viewall{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--rose);color:var(--rose);padding:10px 26px;border-radius:999px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:.25s}
+.viewall:hover{background:var(--rose);color:#1a0d14}
+.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.orderbtn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:#1a1206;border:none;padding:10px 26px;border-radius:999px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:600;transition:.25s}
+.orderbtn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+
+/* ===== DETAIL STRIP (single row, click to enlarge) ===== */
+.stripwrap{position:relative;margin-top:4px}
+.grid{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:thin;scrollbar-color:var(--rose-line) transparent}
+.grid::-webkit-scrollbar{height:6px}
+.grid::-webkit-scrollbar-track{background:rgba(232,160,191,.06);border-radius:3px}
+.grid::-webkit-scrollbar-thumb{background:rgba(232,160,191,.35);border-radius:3px}
+.grid .cell{flex:0 0 76px;width:76px;aspect-ratio:2/3;border:1px solid rgba(232,160,191,.14);border-radius:8px;overflow:hidden;cursor:zoom-in;background:var(--card)}
+.grid .cell img{width:100%;height:100%;object-fit:cover;transition:transform .45s,opacity .4s;opacity:0}
+.grid .cell img.ld{opacity:1}
+.grid .cell:hover img{transform:scale(1.08)}
+.grid .cell:hover{border-color:var(--rose)}
+.striphint{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.striphint .lbl{color:var(--muted);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase}
+.striphint .lbl b{color:var(--rose);font-weight:500}
+.striphint .scroll{color:var(--gold);font-size:11.5px;letter-spacing:.12em;opacity:.85}
+.morebtn{display:none;margin:22px auto 0;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:9px 30px;border-radius:999px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+.morebtn:hover{background:rgba(212,175,55,.12)}
+
+/* ===== LIGHTBOX ===== */
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:150;display:none;flex-direction:column}
+#lb.on{display:flex}
+#lb .top{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid rgba(232,160,191,.15)}
+#lb .cap{color:var(--rose);font-size:13px;letter-spacing:.15em}
+#lb .cap b{color:var(--gold);font-family:var(--serif);font-weight:500;font-size:16px;letter-spacing:.02em;margin-right:10px}
+#lb .cnt{color:var(--muted);font-size:12px;letter-spacing:.1em;margin-left:14px}
+#lb .close{background:none;border:1px solid var(--rose-line);color:var(--rose);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px;line-height:1}
+#lb .stage{flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:10px 60px}
+#lb .stage img{max-height:82vh;max-width:100%;object-fit:contain;border:1px solid var(--rose-line);border-radius:8px}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(20,17,22,.85);border:1px solid var(--rose-line);color:var(--rose);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px}
+#lb .nav:hover{background:var(--rose);color:#1a0d14}
+#lb .prev{left:14px}#lb .next{right:14px}
+#lb .thumbs{display:flex;gap:6px;overflow-x:auto;padding:10px 22px 16px;border-top:1px solid rgba(232,160,191,.12)}
+#lb .thumbs img{height:56px;border-radius:6px;cursor:pointer;opacity:.45;border:1px solid transparent;flex-shrink:0}
+#lb .thumbs img.on{opacity:1;border-color:var(--gold)}
+
+/* ===== CONTACT ===== */
+.contact{padding:70px 5% 60px;text-align:center;background:
+  radial-gradient(ellipse 50% 60% at 50% 100%,rgba(232,160,191,.06),transparent)}
+.contact .eyebrow{color:var(--rose);letter-spacing:.4em;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.contact h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,42px);color:var(--gold);margin-bottom:8px}
+.contact h2 em{color:var(--rose);font-style:italic}
+.contact>p{color:var(--muted);max-width:520px;margin:0 auto 34px;font-size:14.5px}
+.ccards{display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+.ccard{background:var(--card);border:1px dashed var(--rose-line);border-radius:14px;padding:30px 40px;min-width:250px;transition:border-color .25s}
+.ccard:hover{border-color:var(--rose)}
+.ccard .ic{width:44px;height:44px;margin:0 auto 14px;border:1px solid var(--rose-line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--rose)}
+.ccard .ic svg{width:20px;height:20px;fill:currentColor}
+.ccard .cl{color:var(--gold);font-size:12px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:8px}
+.ccard .cv{color:var(--muted);font-size:14px}
+.ccard .cv i{font-style:normal;border-bottom:1px dotted rgba(154,143,150,.5)}
+.ccard .soon{display:inline-block;margin-top:10px;color:var(--rose);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--rose-line);border-radius:999px;padding:3px 12px}
+.ccard .qrbox{display:inline-block;background:#fff;padding:9px;border-radius:12px;margin:12px auto 4px;line-height:0;transition:transform .25s,box-shadow .25s}
+.ccard .qrbox:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(232,160,191,.28)}
+.ccard .qrbox img{width:148px;height:148px;display:block;border-radius:4px}
+.ccard .tlink{display:inline-block;margin-top:10px;color:var(--rose);font-size:13px;border-bottom:1px dotted rgba(232,160,191,.55);word-break:break-all}
+.ccard .hint{margin-top:7px;color:var(--muted);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase}
+
+/* ===== FOOTER ===== */
+footer{padding:50px 5% 40px;text-align:center;border-top:1px solid var(--rose-line)}
+footer .logo{justify-content:center;margin-bottom:14px}
+footer p{color:var(--muted);font-size:12px;max-width:640px;margin:0 auto 6px}
+footer .fine{font-size:11px;opacity:.7}
+@media print{body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+
+<!-- AGE GATE -->
+<div id="ageGate">
+  <div class="box">
+    <h2>You must be 18 or older</h2>
+    <p>This website contains adult products intended for adults only. By entering, you confirm that you are of legal age in your jurisdiction.</p>
+    <div class="btns">
+      <button class="yes" onclick="enterSite()">I am 18 or older — Enter</button>
+      <button class="no" onclick="location.href='https://www.google.com'">Leave</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="index.html"><img src="images/logo-32.png" alt="" class="logo-icon"><span class="kk">kingkey</span><span class="doll">doll</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html" class="on">The Collection</a>
+    <a href="quality.html">Quality</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact Us</a>
+    <span class="badge18">18+</span>
+  </div>
+</nav>
+
+<header>
+  <div class="eyebrow">Twenty-Three Signature Companions</div>
+  <h1>The <em>Collection</em></h1>
+  <p>Each piece is photographed in full — every angle, every detail. Crafted in premium TPE &amp; silicone with articulated skeletons, shipped discreetly from our US &amp; EU warehouses.</p>
+</header>
+
+<div class="themenav" id="themenav"></div>
+<main id="themes"></main>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <div class="top">
+    <div class="cap"><b id="lbName"></b><span id="lbSku"></span><span class="cnt" id="lbCnt"></span></div>
+    <button class="close" onclick="lbClose()">&times;</button>
+  </div>
+  <div class="stage">
+    <button class="nav prev" onclick="lbStep(-1)">&#10094;</button>
+    <img id="lbImg" src="" alt="">
+    <button class="nav next" onclick="lbStep(1)">&#10095;</button>
+  </div>
+  <div class="thumbs" id="lbThumbs"></div>
+</div>
+
+<!-- CONTACT INFO -->
+<section class="contact" id="contact">
+  <div class="eyebrow">Get in Touch</div>
+  <h2>Contact <em>Info</em></h2>
+  <p>Questions, custom requests or order support — we usually reply within 24 hours.</p>
+  <div class="ccards">
+    <div class="ccard">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M21.9 4.6c.2-1.1-.8-2-1.9-1.7L2.7 9.6c-1.2.4-1.1 2.1.1 2.4l4.6 1.3 1.7 5.5c.3 1 1.6 1.3 2.3.5l2.4-2.6 4.3 3.2c.8.6 1.9.2 2.1-.8l3.7-14.5zM8.3 12.8l9.5-6.1c.3-.2.6.2.3.4l-7.7 7.1-.3 3-1.8-4.4z"/></svg></div>
+      <div class="cl">Telegram</div>
+      <div class="cv"><i>Join our group</i></div>
+      <a class="qrbox" href="https://t.me/+-6MISTjh2iljYWFl" target="_blank" rel="noopener">
+        <img src="images/tg-group-qr.png" alt="Scan to join the KingKey Doll Telegram group">
+      </a>
+      <div><a class="tlink" href="https://t.me/+-6MISTjh2iljYWFl" target="_blank" rel="noopener">t.me/+-6MISTjh2iljYWFl</a></div>
+      <div class="hint">Scan or click to join</div>
+    </div>
+    <div class="ccard">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 4.8-8-4.8V6l8 4.8L20 6v2.2z"/></svg></div>
+      <div class="cl">Email</div>
+      <div class="cv"><i>support&#64;kingkeydoll.com</i></div>
+      <span class="soon">Coming soon</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="images/logo-64.png" alt="KingKey Doll" style="margin:0 auto 16px;opacity:.85">
+  <div class="logo"><span class="kk">kingkey</span><span class="doll">doll</span></div>
+  <p>100% discreet packaging &amp; billing. No brand names on the outer box, no product details on your statement.</p>
+  <p>The owners of this website are not the primary producer (as that term is defined in 18 U.S.C. § 2257) of any visual content.</p>
+  <p class="fine">&copy; 2026 KingKey Doll. All products are adult collectibles intended for adults 18+ only.</p>
+</footer>
+
+<script type="application/json" id="themes-data">
+{
+  "themes": [
+    {"key":"jia","letter":"I","name":"Vesta","sub":"Signature Torso","sku":"US-56CM · DAJIAOWA","n":15,
+     "desc":"Our most compact companion — a beautifully sculpted torso in premium TPE. Perfect as a first piece, and effortless to store and care for.",
+     "specs":["56 cm compact","Premium TPE","Articulated core","Ships from US warehouse"],
+     "gspecs":["Easy storage"]},
+    {"key":"yi","letter":"II","name":"Aria","sub":"Classic Muse","sku":"US-149-t · AL159","n":20,
+     "desc":"Timeless proportions and a serene expression. Aria is the quiet centerpiece of the collection — elegant in every light.",
+     "specs":["149 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["Bestseller profile"]},
+    {"key":"bing","letter":"III","name":"Bianca","sub":"The Romantic","sku":"US-149-t · AL160","n":36,
+     "desc":"Soft features, luminous skin tone, and the most extensive photo set in the collection — 36 angles that leave nothing to imagination.",
+     "specs":["149 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["36 photo angles"]},
+    {"key":"ding","letter":"IV","name":"Celeste","sub":"The Statement","sku":"US-149-t · AL161","n":34,
+     "desc":"Confident presence and striking detail work, from hand-painted features to realistic skin texture. A collector's piece.",
+     "specs":["149 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["34 photo angles"]},
+    {"key":"wu","letter":"V","name":"Delphine","sub":"The Ethereal","sku":"US-149-t · AL162","n":35,
+     "desc":"Delicate artistry meets durable engineering. Delphine's finish is our benchmark for skin realism across the entire line.",
+     "specs":["149 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["35 photo angles"]},
+    {"key":"ji","letter":"VI","name":"Elena","sub":"The Chameleon","sku":"US-149-t · AL163","n":34,
+     "desc":"The only piece in the collection with selectable heights — 140, 149, 158 or 168 cm — built on the same celebrated face sculpt.",
+     "specs":["140 / 149 / 158 / 168 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["4 height options"]},
+    {"key":"geng","letter":"VII","name":"Freya","sub":"The Bold One","sku":"US-149-t · AL164","n":20,
+     "desc":"Sculpted presence with a fearless attitude. Freya closes the original seven with strength and character in every frame.",
+     "specs":["149 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["20 photo angles"]},
+    {"key":"a01","letter":"VIII","name":"Gemma","sub":"The Healer","sku":"US-159-T · AL165","n":20,
+     "desc":"Maria Luna sculpt, 159 cm of warm presence. Hand-painted makeup with realistic skin tone — photographed from every angle in classic wardrobe.",
+     "specs":["159 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["20 photo angles"]},
+    {"key":"a02","letter":"IX","name":"Helena","sub":"Silicone Edition","sku":"Sili-37 · Premium Silicone","n":39,"skip":[27],
+     "desc":"Our first silicone-skin release. A different finish — firmer, more lifelike in temperature retention — for collectors who prefer the feel.",
+     "specs":["Premium silicone","Full articulated skeleton","Detailed skin texture","Ships from US warehouse"],
+     "gspecs":["38 photo angles"]},
+    {"key":"a03","letter":"X","name":"Iris","sub":"Silicone Edition","sku":"Sili-38 · Premium Silicone","n":34,
+     "desc":"Platinum-cured silicone with reinforced joints. Iris is built for collectors who want the longest-possible service life from their companion.",
+     "specs":["Premium silicone","Full articulated skeleton","Reinforced joints","Ships from US warehouse"],
+     "gspecs":["34 photo angles"]},
+    {"key":"a04","letter":"XI","name":"Juno","sub":"Silicone Edition","sku":"Sili-51 · Premium Silicone","n":33,
+     "desc":"A sculptural face paired with silicone skin. Juno's profile is one of the most-requested in the photo requests we receive.",
+     "specs":["Premium silicone","Full articulated skeleton","Sculpted facial detail","Ships from US warehouse"],
+     "gspecs":["33 photo angles"]},
+    {"key":"a05","letter":"XII","name":"Kira","sub":"Silicone Edition","sku":"Sili-55 · Premium Silicone","n":35,
+     "desc":"Subtle palette, premium material. Kira photographs beautifully in natural light — a quieter member of the silicone family.",
+     "specs":["Premium silicone","Full articulated skeleton","Natural-light finish","Ships from US warehouse"],
+     "gspecs":["35 photo angles"]},
+    {"key":"a06","letter":"XIII","name":"Lena","sub":"Silicone Edition","sku":"Sili-64 · Premium Silicone","n":19,
+     "desc":"Compact silicone build with a refined silhouette. Lena is for collectors who want premium materials in a more manageable size.",
+     "specs":["Premium silicone","Full articulated skeleton","Compact build","Ships from US warehouse"],
+     "gspecs":["19 photo angles"]},
+    {"key":"a07","letter":"XIV","name":"Mira","sub":"Silicone Edition","sku":"Sili-97 · Premium Silicone","n":35,
+     "desc":"Mid-size silicone sculpt with a particularly expressive face. Mira's photo set is one of the largest in the silicone line.",
+     "specs":["Premium silicone","Full articulated skeleton","Express face sculpt","Ships from US warehouse"],
+     "gspecs":["35 photo angles"]},
+    {"key":"a08","letter":"XV","name":"Nora","sub":"Silicone Edition","sku":"Sili-119 · Premium Silicone","n":37,
+     "desc":"An elegant profile with a modern silhouette. Nora's wardrobe is varied and detailed — almost every photo angle shows a different outfit.",
+     "specs":["Premium silicone","Full articulated skeleton","Varied wardrobe","Ships from US warehouse"],
+     "gspecs":["37 photo angles"]},
+    {"key":"a09","letter":"XVI","name":"Olivia","sub":"The Tall One","sku":"US-168-w · AL166","n":37,
+     "desc":"168 cm of sculpted presence. Olivia is built for collectors who prefer a taller, more statuesque companion.",
+     "specs":["168 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["37 photo angles"]},
+    {"key":"a10","letter":"XVII","name":"Petra","sub":"The Tall One","sku":"US-168-w · AL168","n":37,
+     "desc":"Sister sculpt to Olivia at the same 168 cm height — different face, different wardrobe, same durable engineering.",
+     "specs":["168 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["37 photo angles"]},
+    {"key":"a11","letter":"XVIII","name":"Quinn","sub":"The Storyteller","sku":"US-174-T · Series 99","n":35,
+     "desc":"A distinctive face with a soft palette and thoughtful detail work. Quinn's photo set focuses on close-up portraiture.",
+     "specs":["Premium TPE","Full articulated skeleton","Portrait-grade photos","Ships from US warehouse"],
+     "gspecs":["35 photo angles"]},
+    {"key":"a12","letter":"XIX","name":"Ruby","sub":"The Statuesque","sku":"US-164-T","n":38,
+     "desc":"164 cm, poised and elegant. Ruby's photo angles favour full-length framing that shows off the proportions.",
+     "specs":["164 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["38 photo angles"]},
+    {"key":"a13","letter":"XX","name":"Selene","sub":"The Statement","sku":"US-174-T","n":39,
+     "desc":"Our tallest TPE silhouette in this drop. Selene is photographed in moody, atmospheric lighting that highlights the skin detail.",
+     "specs":["174 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["39 photo angles"]},
+    {"key":"a14","letter":"XXI","name":"Tessa","sub":"The Grand Dame","sku":"US-178-T","n":37,
+     "desc":"178 cm — the longest line in the collection. Tessa is built for collectors who want true full-scale presence.",
+     "specs":["178 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["37 photo angles"]},
+    {"key":"a15","letter":"XXII","name":"Una","sub":"The Versatile","sku":"US-149-t · AL163 (height 140-168)","n":34,
+     "desc":"Same celebrated face sculpt as Elena — but photographed in a separate wardrobe. Choose 140, 149, 158 or 168 cm at order time.",
+     "specs":["140 / 149 / 158 / 168 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["4 height options"]},
+    {"key":"a16","letter":"XXIII","name":"Vera","sub":"The Confident","sku":"US-149-t · AL164","n":20,
+     "desc":"Sister sculpt to Freya — same confident face, fresh photo session. A fitting close to the expanded collection.",
+     "specs":["149 cm","Premium TPE","Full articulated skeleton","Ships from US warehouse"],
+     "gspecs":["20 photo angles"]}
+  ]
+}
+</script>
+
+<script>
+(function(){
+const data = JSON.parse(document.getElementById('themes-data').textContent);
+const themes = data.themes;
+// pre-compute filtered photo indices (skip any image numbers in t.skip)
+themes.forEach(t=>{
+  const skip = new Set(t.skip || []);
+  t.imgs = Array.from({length:t.n}, (_,i)=>i+1).filter(n=>!skip.has(n));
+});
+
+// theme subnav
+document.getElementById('themenav').innerHTML = themes.map(t =>
+  `<a href="#${t.key}">${t.letter} · ${t.name}</a>`).join('');
+
+// sections
+document.getElementById('themes').innerHTML = themes.map(t => {
+  const cells = t.imgs.map((num,i)=>{
+    const n = String(num).padStart(2,'0');
+    return `<div class="cell" onclick="lbOpen('${t.key}',${i})"><img loading="lazy" src="images/${t.key}/thumb/${n}.jpg" alt="${t.name} ${num}" onload="this.classList.add('ld')"></div>`;
+  }).join('');
+  return `<section class="theme" id="${t.key}">
+    <div class="theme-head">
+      <div class="heroimg" onclick="lbOpen('${t.key}',0)">
+        <span class="tag">${t.letter}</span>
+        <img src="images/${t.key}/full/01.jpg" alt="${t.name}">
+      </div>
+      <div class="meta">
+        <div class="no">No. ${t.letter}</div>
+        <h2>${t.name} <span>${t.sub}</span></h2>
+        <div class="sku">${t.sku}</div>
+        <p class="desc">${t.desc}</p>
+        <div class="specs">${t.specs.map(s=>`<span>${s}</span>`).join('')}${t.gspecs.map(s=>`<span class="g">${s}</span>`).join('')}</div>
+        <div class="actions">
+          <button class="viewall" onclick="lbOpen('${t.key}',0)">View all ${t.imgs.length} photos</button>
+          <a class="orderbtn" href="checkout.html?theme=${t.key}">Order ${t.name} →</a>
+        </div>
+      </div>
+    </div>
+    <div class="stripwrap">
+      <div class="striphint">
+        <span class="lbl">Detail shots — <b>${t.imgs.length} photos</b>, click any to enlarge</span>
+        <span class="scroll">scroll &#10142;</span>
+      </div>
+      <div class="grid">${cells}</div>
+    </div>
+  </section>`;
+}).join('');
+
+// BUGFIX: theme sections are rendered by JS after page load, so the browser's
+// native anchor jump (gallery.html#a02 from home) fails — the target element
+// doesn't exist yet when the browser tries to scroll. Re-run the jump now that
+// the sections exist, and again after the age gate is dismissed.
+window.kkJumpToTheme = function(){
+  const h = decodeURIComponent((location.hash || '').slice(1)).trim();
+  if(!h) return;
+  const el = document.getElementById(h);
+  if(el) el.scrollIntoView({behavior:'instant', block:'start'});
+};
+window.kkJumpToTheme();
+
+// lightbox state
+let cur = null, idx = 0;
+window.lbOpen = function(key, i){
+  cur = themes.find(t=>t.key===key); idx = i;
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow='hidden';
+  lbRender();
+};
+window.lbClose = function(){
+  document.getElementById('lb').classList.remove('on');
+  document.body.style.overflow='';
+};
+window.lbStep = function(d){
+  idx = (idx + d + cur.imgs.length) % cur.imgs.length;
+  lbRender();
+};
+function lbRender(){
+  const num = cur.imgs[idx];
+  document.getElementById('lbImg').src = `images/${cur.key}/full/${String(num).padStart(2,'0')}.jpg`;
+  document.getElementById('lbName').textContent = cur.name;
+  document.getElementById('lbSku').textContent = cur.sku;
+  document.getElementById('lbCnt').textContent = `${idx+1} / ${cur.imgs.length}`;
+  document.getElementById('lbThumbs').innerHTML = cur.imgs.map((num,i)=>
+    `<img src="images/${cur.key}/thumb/${String(num).padStart(2,'0')}.jpg" class="${i===idx?'on':''}" onclick="lbOpen('${cur.key}',${i})" alt="">`).join('');
+  const on = document.querySelector('#lbThumbs img.on');
+  if(on) on.scrollIntoView({inline:'center',block:'nearest'});
+}
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lb').classList.contains('on')) return;
+  if(e.key==='ArrowLeft') lbStep(-1);
+  if(e.key==='ArrowRight') lbStep(1);
+  if(e.key==='Escape') lbClose();
+});
+})();
+
+// age gate
+function enterSite(){
+  document.getElementById('ageGate').style.display='none';
+  try{localStorage.setItem('kk-age-ok','1')}catch(e){}
+  if(window.kkJumpToTheme) window.kkJumpToTheme(); // re-jump after gate closes
+}
+try{ if(localStorage.getItem('kk-age-ok')) document.getElementById('ageGate').style.display='none'; }catch(e){}
+</script>
+</body>
+</html>
