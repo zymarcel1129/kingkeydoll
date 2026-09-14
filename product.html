@@ -54,7 +54,7 @@ h1 span{color:var(--rose);font-style:italic;font-size:.6em}
 .opt button{background:var(--card);border:1px solid var(--rose-line);color:var(--text);padding:8px 18px;border-radius:999px;font-size:13px;cursor:pointer;transition:.2s}
 .opt button.on{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.08)}
 .buy{display:flex;gap:12px;margin:26px 0 16px;flex-wrap:wrap}
-.btn{display:inline-block;padding:14px 34px;border-radius:999px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;transition:.25s}
+.btn{display:inline-block;padding:14px 34px;border-radius:999px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;transition:.25s;font-family:var(--sans);line-height:1.2}
 .btn.rose{background:linear-gradient(135deg,var(--rose-deep),var(--rose));color:#1a0d14;font-weight:600}
 .btn.ghost{background:transparent;border-color:var(--gold);color:var(--gold)}
 .assure{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px}
@@ -91,7 +91,6 @@ footer .fine{font-size:11px;opacity:.7}
     <a href="index.html">Home</a>
     <a href="gallery.html" class="on">The Collection</a>
     <a href="quality.html">Quality</a>
-    <a href="custom-studio.html">Custom Studio</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact Us</a>
     <span class="badge18">18+</span>
@@ -123,8 +122,8 @@ footer .fine{font-size:11px;opacity:.7}
       </div></div>
 
       <div class="buy">
-        <a class="btn rose" href="checkout.html?theme=yi">Add to cart</a>
-        <a class="btn ghost" href="custom-studio.html">Customize in Studio</a>
+        <button class="btn rose" onclick="enquireNow()">Request this piece</button>
+        <a class="btn ghost" href="contact.html">Ask a question first</a>
       </div>
       <div class="assure">
         <span>🔒 100% discreet packaging</span><span>🧪 FDA-tested materials</span><span>📦 US &amp; EU stock</span>
@@ -185,7 +184,21 @@ footer .fine{font-size:11px;opacity:.7}
       row.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
     }));
   });
+  // unified enquiry — collects the configuration above and opens the mail panel
+  window.enquireNow = function(){
+    var opts = [];
+    document.querySelectorAll('.opt').forEach(function(o){
+      var lab = o.querySelector('label').textContent.trim();
+      var sel = o.querySelector('button.on');
+      if(sel) opts.push(lab + ': ' + sel.textContent.trim());
+    });
+    openInquiry({
+      name:'Aria', sub:'Classic Muse', ref:'US-149-t · AL159', price:'$1,290',
+      img:'images/yi/thumb/01.jpg', options:opts, src:location.pathname.split('/').pop()
+    });
+  };
 })();
 </script>
+<script src="inquiry.js"></script>
 </body>
 </html>

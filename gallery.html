@@ -107,6 +107,9 @@ header p{color:var(--muted);max-width:620px;margin:18px auto 0;font-size:15px}
 #lb .cap b{color:var(--gold);font-family:var(--serif);font-weight:500;font-size:16px;letter-spacing:.02em;margin-right:10px}
 #lb .cnt{color:var(--muted);font-size:12px;letter-spacing:.1em;margin-left:14px}
 #lb .close{background:none;border:1px solid var(--rose-line);color:var(--rose);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px;line-height:1}
+#lb .lbenq{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:#1a1206;border:none;padding:9px 18px;border-radius:999px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:600;font-family:var(--sans)}
+#lb .lbenq:hover{filter:brightness(1.1)}
+@media(max-width:640px){#lb .lbenq{display:none}}
 #lb .stage{flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:10px 60px}
 #lb .stage img{max-height:82vh;max-width:100%;object-fit:contain;border:1px solid var(--rose-line);border-radius:8px}
 #lb .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(20,17,22,.85);border:1px solid var(--rose-line);color:var(--rose);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px}
@@ -186,7 +189,10 @@ footer .fine{font-size:11px;opacity:.7}
 <div id="lb">
   <div class="top">
     <div class="cap"><b id="lbName"></b><span id="lbSku"></span><span class="cnt" id="lbCnt"></span></div>
-    <button class="close" onclick="lbClose()">&times;</button>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button class="lbenq" onclick="lbEnquire()">Enquire about this piece</button>
+      <button class="close" onclick="lbClose()">&times;</button>
+    </div>
   </div>
   <div class="stage">
     <button class="nav prev" onclick="lbStep(-1)">&#10094;</button>
@@ -328,6 +334,7 @@ footer .fine{font-size:11px;opacity:.7}
 }
 </script>
 
+<script src="inquiry.js"></script>
 <script>
 (function(){
 const data = JSON.parse(document.getElementById('themes-data').textContent);
@@ -362,7 +369,7 @@ document.getElementById('themes').innerHTML = themes.map(t => {
         <div class="specs">${t.specs.map(s=>`<span>${s}</span>`).join('')}${t.gspecs.map(s=>`<span class="g">${s}</span>`).join('')}</div>
         <div class="actions">
           <button class="viewall" onclick="lbOpen('${t.key}',0)">View all ${t.imgs.length} photos</button>
-          <a class="orderbtn" href="checkout.html?theme=${t.key}">Order ${t.name} →</a>
+          <button class="orderbtn" data-inq="${t.key}">Enquire about ${t.name} →</button>
         </div>
       </div>
     </div>
@@ -421,6 +428,17 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight') lbStep(1);
   if(e.key==='Escape') lbClose();
 });
+
+// unified order enquiry — every "enquire" button opens the same mail panel
+document.getElementById('themes').addEventListener('click',function(e){
+  const b=e.target.closest('[data-inq]'); if(!b) return;
+  const t=themes.find(x=>x.key===b.getAttribute('data-inq')); if(!t) return;
+  openInquiry({name:t.name,sub:t.sub,ref:t.sku,img:'images/'+t.key+'/thumb/01.jpg',options:(t.specs||[]).slice(0,3),src:'gallery.html#'+t.key});
+});
+window.lbEnquire=function(){
+  if(!cur) return;
+  openInquiry({name:cur.name,sub:cur.sub,ref:cur.sku,img:'images/'+cur.key+'/thumb/01.jpg',options:(cur.specs||[]).slice(0,3),src:'gallery.html#'+cur.key});
+};
 })();
 
 // age gate
